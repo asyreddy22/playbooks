@@ -1,0 +1,9 @@
+---
+- name: Create a file
+  hosts: all
+  become: true
+  tasks: 
+  - name: Creating File
+    file:
+      path: /home/saiadmin/day1
+      state: touch
