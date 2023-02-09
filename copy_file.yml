@@ -1,0 +1,11 @@
+---
+- name: copy file
+  hosts: all
+  become: true
+  tasks:
+  - name: coping file
+    copy:
+      src: /home/saiadmin/playbooks/index.html
+      dest: /etc
+      mode: 0644
+      owner: root
