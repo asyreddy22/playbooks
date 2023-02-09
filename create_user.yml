@@ -6,3 +6,4 @@
   - name: creating user
     user:
       name: newuser
+      state: present
