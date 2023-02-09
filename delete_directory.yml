@@ -1,0 +1,9 @@
+---
+- name: delete directory
+  hosts: all
+  become: true
+  tasks:
+  - name: deleting directory
+    file:
+      path: /home/saiadmin/mypath
+      state: absent
