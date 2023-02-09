@@ -1,0 +1,21 @@
+---
+- name: Multiple Operations File
+  hosts: all
+  become: true
+  tasks:
+  - name: Creating Directory 
+    file:
+        path: /home/saiadmin/1242
+        state: directory
+  - name: Create File
+    file:
+        path: /home/saiadmin/1242/myfile1
+        state: touch
+  - name: Delete File
+    file:
+        path: /home/saiadmin/1242/myfile1
+        state: absent
+  - name: Delete Directory
+    file:
+        path: /home/saiadmin/1242
+        state: absent
