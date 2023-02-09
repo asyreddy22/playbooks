@@ -1,0 +1,9 @@
+---
+- name: Create a Directory
+  hosts: all
+  become: true
+  tasks:
+  - name: Creating a Directory
+    file:
+      path: /home/saiadmin/mypath
+      state: directory
