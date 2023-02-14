@@ -1,0 +1,34 @@
+---
+- name: Install Httpd or Apache2 package Start webserver and copy index.html file
+  hosts: all
+  become: true
+  tasks:
+  - name: Install Httpd package
+    yum:
+      name: httpd
+      state: present
+    when: ansible_os_family == "RedHat"
+
+  - name: Install Apache2 Package
+    apt: 
+      name: apache2
+      state: present
+    when: ansible_os_family == "Debian"
+
+  - name: start httpd Package
+    service:
+      name: httpd
+      state: started
+    when: ansible_os_family == "RedHat"
+
+  - name: start Apache2 Package
+    service:
+      name: apache2
+      state: started
+    when: ansible_os_family == "Debian"
+
+  - name: Copy index.html file into inside html Directory
+    copy:
+      src: /home/saiadmin/playbooks/index.html
+      dest: /var/www/html
+      mode: 0666
